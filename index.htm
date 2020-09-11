@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+  	.contents {
+  position: relative;
+  width: 50%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.contents .emotionbtn {
+  position: absolute;
+  top: 80%;
+  left: 110%;
+  border: none;
+  cursor: pointer;
+}
+  	.emotionbtn
+  	{
+  		color: transparent; 
+  		background-color: transparent; 
+  		border: none;
+  	}
+    div 
+    {
+      background-repeat: no-repeat;
+      background-color: black;
+      background-attachment: fixed;
+      position: relative;    
+  }
+  body
+  {
+  	background-color: black;
+  }
+  </style>
+	<script>
+    var images = ['fear.PNG','joy.PNG','disgust.PNG','anger.PNG','sadness.PNG'];
+    var index = 0;
+
+    function buildImage() {
+      var img = document.createElement('img')
+      img.src = images[index];
+      document.getElementById('content').appendChild(img);
+    }
+
+    function changeImage(){
+      var img = document.getElementById('content').getElementsByTagName('img')[0]
+      img.src = images[Math.floor(Math.random() * 5)];
+    }
+</script>
+</head>
+<body onload="buildImage();">
+    <div class="contents" id="content">
+    <button class="emotionbtn" onclick="changeImage()" style="
+    font-size: 500%; border: none">newimg</button>
+	</div>
+</body>
+</html>
